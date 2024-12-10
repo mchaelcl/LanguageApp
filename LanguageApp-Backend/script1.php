@@ -16,8 +16,10 @@ if ($mysqli->connect_error) {
 
 $sqlget = "SELECT english, mandarin FROM words";
 $result = $mysqli->query($sqlget);
+//turn module info from sql into json array and then create js file to pull and display in html index
+echo json_encode($result);
 
-echo "$result->num_rows";
+
 
 if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){
