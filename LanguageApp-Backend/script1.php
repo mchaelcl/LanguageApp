@@ -17,7 +17,7 @@ if ($mysqli->connect_error) {
 $sqlget = "SELECT module_title FROM module";
 $result = $mysqli->query($sqlget);
 
-$resultArray = array();
+$resultArray = [];
 while($row = $result->fetch_assoc()){
     $resultArray[] = $row;
 }

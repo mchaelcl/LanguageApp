@@ -1,0 +1,6 @@
+variable = new XMLHttpRequest();
+xhttp.onload = function() {
+    
+  }
+  xhttp.open("GET", "ajax_info.txt");
+xhttp.send();
