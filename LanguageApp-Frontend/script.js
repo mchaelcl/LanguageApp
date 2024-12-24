@@ -17,6 +17,7 @@ xhttp.onload = function() {
     console.error("Error: " + xhttp.statusText);
   }
 }
+console.log(xhttp.responseText);
 
-xhttp.open("GET", "../LanguageApp-Backend/script1. php", true); //404 error -  url shows this is being looked for in file that doesnt exist. Find out how to cull unnecessary pathway elements
+xhttp.open("GET", "../LanguageApp-Backend/script.php", true);
 xhttp.send();

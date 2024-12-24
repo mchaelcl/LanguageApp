@@ -21,8 +21,9 @@ $resultArray = [];
 while($row = $result->fetch_assoc()){
     $resultArray[] = $row;
 }
-echo json_encode($resultArray);
-
+header('Content-Type: application/json');
+$send_json = json_encode($resultArray);
+echo $send_json;
 
 
 // if($result->num_rows > 0){
