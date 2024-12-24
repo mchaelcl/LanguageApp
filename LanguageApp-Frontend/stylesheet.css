@@ -1,0 +1,32 @@
+﻿body {
+    background-color:  darkolivegreen;
+    color: black;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.left-block, .right-block {
+    height: 100vh;
+    background-color: ivory;
+    width: 15vw;
+}
+
+.left-block {
+    position: absolute;
+    left: 0px;
+}
+
+right-block {
+    position: absolute;
+    right: 0px;
+}
+
+
+.centre-content {
+    display: flex;
+    flex-direction: column;
+}
