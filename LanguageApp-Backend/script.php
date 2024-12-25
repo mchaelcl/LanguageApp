@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 
 $user = 'root';
 $password = '';
@@ -21,7 +22,7 @@ $resultArray = [];
 while($row = $result->fetch_assoc()){
     $resultArray[] = $row;
 }
-header('Content-Type: application/json');
+
 $send_json = json_encode($resultArray);
 echo $send_json;
 

@@ -1,7 +1,7 @@
 const xhttp = new XMLHttpRequest();
 
 xhttp.onload = function() {
-  //code inside function() will execute automatically
+  console.log(xhttp.responseText);
   if (xhttp.status === 200) {
     const data = JSON.parse(xhttp.responseText);
 
@@ -17,7 +17,6 @@ xhttp.onload = function() {
     console.error("Error: " + xhttp.statusText);
   }
 }
-console.log(xhttp.responseText);
 
 xhttp.open("GET", "../LanguageApp-Backend/script.php", true);
 xhttp.send();
