@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header('Content-Type: application/json');
 
 $user = 'root';
@@ -12,9 +14,6 @@ if ($mysqli->connect_error) {
     die("Connect Error " . $mysqli->connect_errno);
 }
 
-// $sql = "INSERT INTO words (english, mandarin, lesson_id) 
-// VALUES ('me', 'wo1', 1)";
-
 $sqlget = "SELECT module_title FROM module";
 $result = $mysqli->query($sqlget);
 
@@ -26,22 +25,6 @@ while($row = $result->fetch_assoc()){
 $send_json = json_encode($resultArray);
 echo $send_json;
 
-
-// if($result->num_rows > 0){
-//     while($row = $result->fetch_assoc()){
-//         echo "english: " . $row["english"]. " - Mandarin " . $row["mandarin"]. "<br>"; 
-//     }
-// }
-
-// else {
-//     echo "0 results";
-// }
-
-// if ($mysqli->query($sql) === TRUE) {
-//     echo "New record created";
-// } else {
-//     echo "Error: " . $sql . "<br>" . $mysqli->error;
-// }
 
 $mysqli->close();
 ?>
