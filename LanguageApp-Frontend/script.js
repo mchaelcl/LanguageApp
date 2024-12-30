@@ -3,7 +3,7 @@ const xhttp = new XMLHttpRequest();
 const express = require("express");
 const app = express();
 
-const cors = requires("cors");
+const cors = require("cors");
 
 app.use(
 cors({
