@@ -11,16 +11,13 @@ cors({
 })
 )
 
-app.listen(3000, () => {
-    console
-        .log('Server is running on port 3000');
-});
+
 
 xhttp.onload = function() {
-  console.log("Raw Response:", xhttp.responseText); // Debug the response
+  console.log("Raw Response:", xhttp.responseText); 
   if (xhttp.status === 200) {
       try {
-          const data = JSON.parse(xhttp.responseText); // Attempt to parse JSON
+          const data = JSON.parse(xhttp.responseText); 
           console.log("Parsed Data:", data);
       } catch (error) {
           console.error("JSON Parse Error:", error.message);
