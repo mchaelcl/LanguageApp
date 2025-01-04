@@ -4,6 +4,8 @@ const cors = require("cors");
 const app = express();
 const PORT = 3000; 
 
+//set up xml to communicate with html
+
 
 //https://expressjs.com/en/resources/middleware/cors.html
 
