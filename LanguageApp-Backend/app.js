@@ -3,11 +3,14 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const PORT = 3000; 
+import fetch from "node-fetch";
 
 //set up xml to communicate with html
 
 
 //https://expressjs.com/en/resources/middleware/cors.html
+
+//https://oxylabs.io/blog/nodejs-fetch-api
 
 app.use(cors());
 
@@ -62,3 +65,18 @@ connection.end((err) => {
     console.log("Database connection closed.");
   }
 });
+
+fetch("https://127.0.0.1:5500/")
+  .then((response) => {
+    if (response.ok) {
+      return response.text(); // Or response.json() for JSON data
+    } else {
+      throw new Error(`Error: ${response.status}`);
+    }
+  })
+  .then((data) => {
+    console.log(data); // Log the response text
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });
