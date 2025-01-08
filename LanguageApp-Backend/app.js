@@ -1,9 +1,8 @@
-const mysql = require("mysql2");
-const express = require("express");
-const cors = require("cors");
+const mysql = require('mysql2');
+const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 3000; 
-import fetch from "node-fetch";
 
 //set up xml to communicate with html
 
@@ -46,16 +45,30 @@ connection.connect((err) => {
   console.log("Connected to the database.");
 });
 
-const sqlGet = "SELECT module_title FROM module";
+// const sqlGet = "SELECT module_title FROM module";
 
-connection.query(sqlGet, (err, results) => {
-  if (err) {
-    console.error("Query Error", err);
-    return;
-  }
+// connection.query(sqlGet, (err, results) => {
+//   if (err) {
+//     console.error("Query Error", err);
+//     return;
+//   }
 
-  const sendJson = JSON.stringify(results);
-  console.log(sendJson); 
+//   const sendJson = JSON.stringify(results);
+//   console.log(sendJson); 
+// });
+
+app.get('/index', (req, res) => {
+  let getmodules = 'SELECT module_title FROM module';
+  
+  connection.query(getmodules, (err,rows) => {
+    let modules = [];
+    rows.forEach((row) => {
+      modules.push({
+        module_title: row.module_title,
+      });
+    });
+    res.render('index', {modules: modules});
+});
 });
 
 connection.end((err) => {
@@ -65,18 +78,3 @@ connection.end((err) => {
     console.log("Database connection closed.");
   }
 });
-
-fetch("https://127.0.0.1:5500/")
-  .then((response) => {
-    if (response.ok) {
-      return response.text(); // Or response.json() for JSON data
-    } else {
-      throw new Error(`Error: ${response.status}`);
-    }
-  })
-  .then((data) => {
-    console.log(data); // Log the response text
-  })
-  .catch((error) => {
-    console.error(error.message);
-  });
